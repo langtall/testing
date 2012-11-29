@@ -9,6 +9,9 @@ import org.apache.commons.logging.LogFactory;
 
 import org.springframework.beans.factory.annotation.Autowired;
 
+import javax.persistence.EntityManager;
+import javax.persistence.PersistenceContext;
+
 
 /**
  * @author  Marius van Herpen - mvanherpen@contargo.net
@@ -19,6 +22,9 @@ public class SongServiceImpl implements SongService {
 
     @Autowired
     private SongDao songDao;
+
+    @PersistenceContext
+    private EntityManager em;
 
     @Override
     public Song findById(Integer id) {
