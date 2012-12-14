@@ -2,11 +2,15 @@ package com.mvhtesting.charts.domain;
 
 import java.io.Serializable;
 
+import java.util.Set;
+
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
-import javax.persistence.ManyToOne;
+import javax.persistence.JoinColumn;
+import javax.persistence.JoinTable;
+import javax.persistence.OneToMany;
 import javax.persistence.OneToOne;
 
 
@@ -16,12 +20,18 @@ import javax.persistence.OneToOne;
 @Entity
 public class Song implements Serializable {
 
+    private static final long serialVersionUID = 1L;
+
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer id;
 
-    @ManyToOne
-    private Artist artist;
+    @OneToMany
+    @JoinTable(
+        name = "SONGTOARTISTS", joinColumns = { @JoinColumn(name = "ID") },
+        inverseJoinColumns = { @JoinColumn(name = "ID") }
+    )
+    private Set<Artist> artists;
     @OneToOne
     private Title title;
 
@@ -37,15 +47,15 @@ public class Song implements Serializable {
     }
 
 
-    public Artist getArtist() {
+    public Set<Artist> getArtists() {
 
-        return artist;
+        return artists;
     }
 
 
-    public void setArtist(Artist artist) {
+    public void setArtists(Set<Artist> artists) {
 
-        this.artist = artist;
+        this.artists = artists;
     }
 
 
