@@ -9,4 +9,7 @@ import com.mvhtesting.charts.domain.Song;
 public interface SongService {
 
     Song findById(Integer id);
+
+
+    Song saveSong(Song song);
 }
