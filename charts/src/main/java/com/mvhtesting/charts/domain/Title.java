@@ -13,6 +13,7 @@ import javax.persistence.Id;
  */
 @Entity
 public class Title implements Serializable {
+
     private static final long serialVersionUID = 1L;
 
     @Id
@@ -20,6 +21,15 @@ public class Title implements Serializable {
     private Integer id;
 
     private String name;
+
+    public Title() {
+    }
+
+
+    public Title(String title) {
+
+        this.name = title;
+    }
 
     public Integer getId() {
 

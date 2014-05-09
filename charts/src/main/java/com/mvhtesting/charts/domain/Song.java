@@ -35,6 +35,12 @@ public class Song implements Serializable {
     @OneToOne
     private Title title;
 
+    public Song(Set<Artist> artists, Title title) {
+
+        this.artists = artists;
+        this.title = title;
+    }
+
     public Integer getId() {
 
         return id;

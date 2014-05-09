@@ -22,6 +22,15 @@ public class Artist implements Serializable {
 
     private String name;
 
+    public Artist() {
+    }
+
+
+    public Artist(String artist) {
+
+        this.name = artist;
+    }
+
     public Integer getId() {
 
         return id;
