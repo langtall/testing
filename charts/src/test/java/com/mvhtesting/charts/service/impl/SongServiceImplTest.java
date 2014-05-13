@@ -44,7 +44,7 @@ public class SongServiceImplTest {
     @Test
     public void testSaveSong() {
 
-        Song result = null;
+        Song result;
 
         result = songService.saveSong(song);
 
